@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shirley Trinita S | Finance Student</title>
-  <meta name="description" content="Portfolio of Shirley Trinita S, B.Com (PA) student interested in finance and accounting.">
+  <title>Shirley Trinita S | Portfolio & Innovation Journey</title>
+  <meta name="description" content="Portfolio of Shirley Trinita S, B.Com (PA) student and Innovation Engineer Trainee in the PRICE ProtoSem programme.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: { extend: {
-        colors: { accent: "#a855f7" }
+        colors: { 
+          accent: "#a855f7",
+          protosem: "#8b5cf6"
+        }
       }}
     }
   </script>
@@ -19,40 +22,79 @@
       background:
         radial-gradient(circle at 15% 20%, rgba(168,85,247,.20), transparent 30%),
         radial-gradient(circle at 85% 10%, rgba(139,92,246,.16), transparent 28%),
+        radial-gradient(circle at 50% 65%, rgba(99,102,241,.12), transparent 35%),
         #09070f;
     }
     .glass { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(16px); }
+    .glass-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); backdrop-filter: blur(12px); }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.show { opacity: 1; transform: translateY(0); }
     .float { animation: float 4s ease-in-out infinite; }
     @keyframes float { 0%,100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); } 50% { transform: translateY(-10px) rotateX(2deg) rotateY(-2deg); } }
+
+    /* ProtoSem Custom Interactive Styles */
+    .phase-pill.active {
+      background: linear-gradient(135deg, #a855f7, #6366f1);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.4);
+      box-shadow: 0 0 20px rgba(168,85,247,0.4);
+    }
+    .week-card {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .week-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      border-color: rgba(168, 85, 247, 0.6);
+      background: rgba(168, 85, 247, 0.09);
+      box-shadow: 0 12px 28px -6px rgba(139, 92, 246, 0.25);
+    }
+    .week-card:hover .card-arrow {
+      transform: translateX(4px);
+      color: #c084fc;
+    }
+    .week-card:hover .hover-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hover-hint {
+      opacity: 0;
+      transform: translateY(4px);
+      transition: all 0.25s ease;
+    }
   </style>
 </head>
 <body class="text-white antialiased">
-  <header class="fixed top-0 z-50 w-full">
-    <nav class="mx-auto mt-3 flex max-w-6xl items-center justify-between rounded-2xl glass px-5 py-3">
-      <a href="#home" class="font-bold tracking-wide">Shirley<span class="text-purple-400">.</span></a>
-      <div class="hidden gap-6 text-sm text-white/75 md:flex">
-        <a href="#about" class="hover:text-white">About</a>
-        <a href="#skills" class="hover:text-white">Skills</a>
-        <a href="#journey" class="hover:text-white">Journey</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
+  <!-- Sticky Header Navigation -->
+  <header class="fixed top-0 z-50 w-full px-4">
+    <nav class="mx-auto mt-3 flex max-w-6xl items-center justify-between rounded-2xl glass px-5 py-3 shadow-xl shadow-purple-950/20">
+      <a href="#home" class="text-lg font-bold tracking-wide">Shirley<span class="text-purple-400">.</span></a>
+      <div class="hidden gap-6 text-sm font-medium text-white/75 md:flex">
+        <a href="#about" class="transition hover:text-white">About</a>
+        <a href="#skills" class="transition hover:text-white">Skills</a>
+        <a href="#journey" class="transition hover:text-white">Journey</a>
+        <a href="#protosem" class="text-purple-300 font-semibold transition hover:text-white flex items-center gap-1.5">
+          <span class="inline-block h-2 w-2 rounded-full bg-purple-400 animate-pulse"></span> ProtoSem
+        </a>
+        <a href="#contact" class="transition hover:text-white">Contact</a>
       </div>
-      <a href="resume.html" class="rounded-xl bg-purple-600 px-4 py-2 text-sm font-semibold hover:bg-purple-500">Resume</a>
+      <div class="flex items-center gap-3">
+        <a href="resume.html" class="rounded-xl bg-purple-600 px-4 py-2 text-sm font-semibold transition hover:bg-purple-500 shadow-md shadow-purple-900/40">Resume</a>
+      </div>
     </nav>
   </header>
 
   <main id="home" class="mx-auto max-w-6xl px-5 pt-32">
+    <!-- Hero Section -->
     <section class="grid min-h-[75vh] items-center gap-12 md:grid-cols-2">
       <div class="reveal">
-        <p class="mb-3 text-sm font-semibold uppercase tracking-[.25em] text-purple-300">B.Com (PA) Student • Finance Aspirant</p>
+        <p class="mb-3 text-sm font-semibold uppercase tracking-[.25em] text-purple-300">B.Com (PA) Student &bull; Innovation Engineer Trainee</p>
         <h1 class="text-5xl font-black leading-tight md:text-7xl">Hello, I'm <span class="text-purple-400">Shirley.</span></h1>
         <p class="mt-6 max-w-xl text-lg leading-8 text-white/70">
-          A commerce student building a strong foundation in finance, accounting and practical business skills, with a growing interest in financial analysis and professional finance roles.
+          A commerce student building a strong foundation in finance, accounting, and practical business systems, currently engaged in the PRICE ProtoSem innovation programme to solve real-world commerce challenges.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#journey" class="rounded-2xl bg-purple-600 px-6 py-3 font-semibold shadow-lg shadow-purple-900/30 hover:bg-purple-500">Explore My Journey</a>
-          <a href="resume.html" class="rounded-2xl glass px-6 py-3 font-semibold hover:bg-white/10">View ATS Resume</a>
+          <a href="#protosem" class="rounded-2xl bg-purple-600 px-6 py-3 font-semibold shadow-lg shadow-purple-900/30 transition hover:bg-purple-500">Explore ProtoSem Journey</a>
+          <a href="resume.html" class="rounded-2xl glass px-6 py-3 font-semibold transition hover:bg-white/10">View ATS Resume</a>
         </div>
       </div>
 
@@ -62,10 +104,10 @@
             <img src="https://ui-avatars.com/api/?name=Shirley+Trinita+S&background=random&size=256" alt="Profile" class="mx-auto h-32 w-32 rounded-3xl border border-white/20">
             <div class="mt-6 text-center">
               <h2 class="text-2xl font-bold">Shirley Trinita S</h2>
-              <p class="mt-1 text-purple-300">Finance-focused Commerce Student</p>
+              <p class="mt-1 text-purple-300">Finance & Innovation Aspirant</p>
               <div class="mt-6 grid grid-cols-2 gap-3 text-left text-sm">
+                <div class="rounded-xl bg-white/5 p-4"><span class="text-white/50">Programme</span><br><b>PRICE ProtoSem</b></div>
                 <div class="rounded-xl bg-white/5 p-4"><span class="text-white/50">Course</span><br><b>B.Com (PA)</b></div>
-                <div class="rounded-xl bg-white/5 p-4"><span class="text-white/50">Interest</span><br><b>Finance</b></div>
               </div>
             </div>
           </div>
@@ -73,16 +115,18 @@
       </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="reveal py-20">
       <div class="glass rounded-3xl p-8 md:p-10">
         <p class="text-sm font-semibold uppercase tracking-[.2em] text-purple-300">About Me</p>
-        <h2 class="mt-2 text-3xl font-bold">Learning with a finance-first mindset</h2>
+        <h2 class="mt-2 text-3xl font-bold">Learning with a finance-first & innovation mindset</h2>
         <p class="mt-5 max-w-4xl leading-8 text-white/70">
-          I am pursuing B.Com (PA) at Kumaraguru College of Arts and Science. I am particularly interested in finance and accounting and enjoy developing practical skills that can support a career in the finance field. I have also completed a Tally course, strengthening my understanding of accounting-related tools.
+          I am pursuing B.Com (PA) at Kumaraguru College of Arts and Science. I am particularly interested in finance and accounting and enjoy developing practical skills that can support a career in the finance field. Alongside accounting tools like Tally, I am actively broadening my horizon through hands-on industry programmes focused on business problem solving.
         </p>
       </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="reveal py-20">
       <p class="text-sm font-semibold uppercase tracking-[.2em] text-purple-300">Skills & Qualifications</p>
       <h2 class="mt-2 text-3xl font-bold">What I'm building</h2>
@@ -94,6 +138,7 @@
       </div>
     </section>
 
+    <!-- Journey Section -->
     <section id="journey" class="reveal py-20">
       <div class="glass rounded-3xl p-8 md:p-10">
         <p class="text-sm font-semibold uppercase tracking-[.2em] text-purple-300">Current Focus</p>
@@ -106,26 +151,320 @@
       </div>
     </section>
 
+    <!-- PROTOSEM DEDICATED SECTION -->
+    <section id="protosem" class="reveal py-20 scroll-mt-24">
+      <div class="glass rounded-3xl p-8 md:p-12 relative overflow-hidden border border-purple-500/20">
+        <!-- Background Ambient Accent -->
+        <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-purple-600/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-20 -bottom-20 h-80 w-80 rounded-full bg-indigo-600/10 blur-3xl pointer-events-none"></div>
+
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 border-b border-white/10 pb-8">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full bg-purple-500/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-purple-300 border border-purple-500/30">
+              <span class="h-1.5 w-1.5 rounded-full bg-purple-400"></span> PROTOSEM
+            </div>
+            <h2 class="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl text-white">PRICE ProtoSem</h2>
+            <p class="mt-2 text-lg font-medium text-purple-300 flex items-center gap-2">
+              <span class="text-white font-semibold">Role:</span> Innovation Engineer Trainee
+            </p>
+            <p class="mt-1 text-sm font-medium tracking-wide text-white/60 uppercase">
+              20-Week Industry-Integrated Innovation Programme
+            </p>
+          </div>
+
+          <!-- Programme Metric Badge -->
+          <div class="flex flex-wrap md:flex-col gap-3 rounded-2xl bg-white/[0.03] p-4 border border-white/10 shrink-0">
+            <div class="text-left">
+              <span class="text-xs uppercase tracking-wider text-white/50">Structure</span>
+              <p class="text-sm font-bold text-purple-300">4 Phases &bull; 20 Weeks</p>
+            </div>
+            <div class="text-left">
+              <span class="text-xs uppercase tracking-wider text-white/50">Focus</span>
+              <p class="text-sm font-bold text-white/90">Retail & Commerce Innovation</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Programme Description -->
+        <div class="mt-8 max-w-4xl space-y-4 text-white/75 text-base leading-relaxed">
+          <p>
+            Selected for a 20-week industry-integrated innovation programme focused on solving real-world retail and commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship.
+          </p>
+          <p>
+            Working with industry problem statements to explore, develop, and validate practical technology solutions beyond conventional classroom learning.
+          </p>
+        </div>
+
+        <!-- Domain / Focus Tags -->
+        <div class="mt-8">
+          <p class="text-xs font-semibold uppercase tracking-widest text-purple-300/80 mb-3">Programme Disciplines & Focus Areas</p>
+          <div class="flex flex-wrap gap-2.5">
+            <div class="flex items-center gap-2 rounded-xl bg-purple-950/40 border border-purple-500/30 px-3.5 py-2 text-xs font-semibold text-purple-200 shadow-sm">
+              <span class="h-1.5 w-1.5 rounded-full bg-purple-400"></span> Phygital Retail & Intelligent Commerce
+            </div>
+            <div class="flex items-center gap-2 rounded-xl bg-purple-950/40 border border-purple-500/30 px-3.5 py-2 text-xs font-semibold text-purple-200 shadow-sm">
+              <span class="h-1.5 w-1.5 rounded-full bg-indigo-400"></span> AI & Analytics
+            </div>
+            <div class="flex items-center gap-2 rounded-xl bg-purple-950/40 border border-purple-500/30 px-3.5 py-2 text-xs font-semibold text-purple-200 shadow-sm">
+              <span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span> Intelligent Systems & IoT
+            </div>
+            <div class="flex items-center gap-2 rounded-xl bg-purple-950/40 border border-purple-500/30 px-3.5 py-2 text-xs font-semibold text-purple-200 shadow-sm">
+              <span class="h-1.5 w-1.5 rounded-full bg-fuchsia-400"></span> Prototyping
+            </div>
+            <div class="flex items-center gap-2 rounded-xl bg-purple-950/40 border border-purple-500/30 px-3.5 py-2 text-xs font-semibold text-purple-200 shadow-sm">
+              <span class="h-1.5 w-1.5 rounded-full bg-pink-400"></span> Entrepreneurship
+            </div>
+          </div>
+        </div>
+
+        <!-- 20-Week Programme Progression Bar -->
+        <div class="mt-12 rounded-2xl bg-white/[0.03] border border-white/10 p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-purple-300">20-Week Programme Journey</span>
+            <span class="text-xs text-white/50">One Programme &bull; Four Phases &bull; Twenty Weeks</span>
+          </div>
+          
+          <!-- Visual Milestone Connector -->
+          <div class="relative py-2">
+            <div class="hidden sm:block absolute top-1/2 left-4 right-4 h-0.5 -translate-y-1/2 bg-white/15"></div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 relative z-10">
+              <div class="flex items-center sm:flex-col sm:items-center gap-2 bg-[#0d0a17] sm:bg-transparent p-2.5 sm:p-0 rounded-xl border border-white/5 sm:border-0">
+                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-purple-600 text-xs font-bold text-white shadow-lg shadow-purple-900/50">01</span>
+                <div class="text-left sm:text-center">
+                  <span class="block text-xs font-semibold text-white">Phase 01</span>
+                  <span class="block text-[11px] text-white/50">Weeks 01–05</span>
+                </div>
+              </div>
+              <div class="flex items-center sm:flex-col sm:items-center gap-2 bg-[#0d0a17] sm:bg-transparent p-2.5 sm:p-0 rounded-xl border border-white/5 sm:border-0">
+                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-purple-700/80 text-xs font-bold text-white">02</span>
+                <div class="text-left sm:text-center">
+                  <span class="block text-xs font-semibold text-white">Phase 02</span>
+                  <span class="block text-[11px] text-white/50">Weeks 06–10</span>
+                </div>
+              </div>
+              <div class="flex items-center sm:flex-col sm:items-center gap-2 bg-[#0d0a17] sm:bg-transparent p-2.5 sm:p-0 rounded-xl border border-white/5 sm:border-0">
+                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-700/80 text-xs font-bold text-white">03</span>
+                <div class="text-left sm:text-center">
+                  <span class="block text-xs font-semibold text-white">Phase 03</span>
+                  <span class="block text-[11px] text-white/50">Weeks 11–15</span>
+                </div>
+              </div>
+              <div class="flex items-center sm:flex-col sm:items-center gap-2 bg-[#0d0a17] sm:bg-transparent p-2.5 sm:p-0 rounded-xl border border-white/5 sm:border-0">
+                <span class="flex h-7 w-7 items-center justify-center rounded-full bg-violet-700/80 text-xs font-bold text-white">04</span>
+                <div class="text-left sm:text-center">
+                  <span class="block text-xs font-semibold text-white">Phase 04</span>
+                  <span class="block text-[11px] text-white/50">Weeks 16–20</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase Filter Navigation -->
+        <div class="mt-12 flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+          <div>
+            <h3 class="text-xl font-bold text-white">Programme Archive & Field Notes</h3>
+            <p class="text-xs text-white/50 mt-0.5">Explore each week's chronological milestone below.</p>
+          </div>
+          <div class="flex flex-wrap gap-2" role="tablist" aria-label="ProtoSem Phase Filter">
+            <button onclick="filterPhase('all')" id="tab-all" class="phase-pill active rounded-xl border border-white/10 px-4 py-2 text-xs font-semibold transition hover:bg-white/10" role="tab" aria-selected="true">
+              ALL (01–20)
+            </button>
+            <button onclick="filterPhase(1)" id="tab-1" class="phase-pill rounded-xl border border-white/10 px-4 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/10 hover:text-white" role="tab" aria-selected="false">
+              PHASE 01 (01–05)
+            </button>
+            <button onclick="filterPhase(2)" id="tab-2" class="phase-pill rounded-xl border border-white/10 px-4 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/10 hover:text-white" role="tab" aria-selected="false">
+              PHASE 02 (06–10)
+            </button>
+            <button onclick="filterPhase(3)" id="tab-3" class="phase-pill rounded-xl border border-white/10 px-4 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/10 hover:text-white" role="tab" aria-selected="false">
+              PHASE 03 (11–15)
+            </button>
+            <button onclick="filterPhase(4)" id="tab-4" class="phase-pill rounded-xl border border-white/10 px-4 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/10 hover:text-white" role="tab" aria-selected="false">
+              PHASE 04 (16–20)
+            </button>
+          </div>
+        </div>
+
+        <!-- 20-Week Cards Grid (Data-driven rendered via JS) -->
+        <div id="weeks-container" class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-5" aria-live="polite">
+          <!-- Cards rendered by JavaScript data structure -->
+        </div>
+
+        <!-- Footer Note inside ProtoSem -->
+        <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-4">
+          <span>Twenty Stories &bull; One Continuous Journey</span>
+          <span class="text-purple-300/80">Weekly reflections and documentation are published periodically.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact" class="reveal py-20">
       <div class="glass rounded-3xl p-8 text-center md:p-12">
         <p class="text-sm font-semibold uppercase tracking-[.2em] text-purple-300">Let's Connect</p>
-        <h2 class="mt-2 text-3xl font-bold">Interested in finance, learning and growth.</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-white/60">Feel free to connect with me for academic, learning and professional opportunities.</p>
+        <h2 class="mt-2 text-3xl font-bold">Interested in finance, innovation and growth.</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-white/60">Feel free to connect with me for academic, learning, and professional opportunities.</p>
         <div class="mt-7 flex flex-wrap justify-center gap-4">
-          <a class="rounded-xl bg-purple-600 px-5 py-3 font-semibold" href="mailto:shirleytrinita008@gmail.com">Email Me</a>
-          <a class="rounded-xl glass px-5 py-3 font-semibold" href="https://www.linkedin.com/in/shirley-trinita-s-98aa30373/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="rounded-xl bg-purple-600 px-5 py-3 font-semibold transition hover:bg-purple-500 shadow-md shadow-purple-900/40" href="mailto:shirleytrinita008@gmail.com">Email Me</a>
+          <a class="rounded-xl glass px-5 py-3 font-semibold transition hover:bg-white/10" href="https://www.linkedin.com/in/shirley-trinita-s-98aa30373/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="mx-auto max-w-6xl px-5 py-10 text-center text-sm text-white/40">© 2026 Shirley Trinita S. All rights reserved.</footer>
+  <!-- Interactive Placeholder Modal for Week Stories -->
+  <div id="week-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 p-4 backdrop-blur-md transition-opacity">
+    <div class="glass max-w-md w-full rounded-3xl p-6 sm:p-8 text-left border border-purple-500/30 shadow-2xl relative">
+      <button onclick="closeWeekModal()" class="absolute top-5 right-5 text-white/60 hover:text-white text-xl font-bold h-8 w-8 rounded-full bg-white/5 flex items-center justify-center">&times;</button>
+      <div class="inline-flex items-center gap-2 rounded-full bg-purple-500/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-purple-300 mb-3" id="modal-phase">
+        Phase 01
+      </div>
+      <h3 class="text-2xl font-black text-white" id="modal-week">WEEK 01</h3>
+      <p class="text-xs uppercase tracking-widest text-purple-300 font-semibold mt-1">Field Notes in Progress</p>
+      <div class="mt-5 rounded-2xl bg-white/5 p-4 border border-white/10 text-sm text-white/70 space-y-2">
+        <p>Documentation, insights, and stories for this week are currently being compiled as part of the PRICE ProtoSem experience archive.</p>
+        <p class="text-xs text-purple-300/80">Route: <code class="bg-black/40 px-2 py-0.5 rounded text-purple-200" id="modal-route">/protosem/week-01</code></p>
+      </div>
+      <div class="mt-6 flex justify-end">
+        <button onclick="closeWeekModal()" class="rounded-xl bg-purple-600 px-5 py-2.5 text-sm font-semibold hover:bg-purple-500">Got it</button>
+      </div>
+    </div>
+  </div>
 
+  <footer class="mx-auto max-w-6xl px-5 py-10 text-center text-sm text-white/40">&copy; 2026 Shirley Trinita S. All rights reserved.</footer>
+
+  <!-- Scripts: Intersection Observer, ProtoSem Data-Driven Structure & Filtering -->
   <script>
+    // Reveal animation
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Data-driven ProtoSem 20-week architecture
+    const protoSemWeeks = Array.from({ length: 20 }, (_, i) => {
+      const weekNum = i + 1;
+      const formattedNum = weekNum.toString().padStart(2, '0');
+      let phase = 1;
+      if (weekNum >= 6 && weekNum <= 10) phase = 2;
+      else if (weekNum >= 11 && weekNum <= 15) phase = 3;
+      else if (weekNum >= 16 && weekNum <= 20) phase = 4;
+
+      return {
+        week: weekNum,
+        phase: phase,
+        title: `WEEK ${formattedNum}`,
+        formatted: formattedNum,
+        slug: `week-${formattedNum}`,
+        status: "placeholder",
+        secondary: "COMING SOON",
+        route: `/protosem/week-${formattedNum}`
+      };
+    });
+
+    let currentPhaseFilter = "all";
+
+    function renderWeeks(phaseFilter = "all") {
+      const container = document.getElementById("weeks-container");
+      if (!container) return;
+
+      const filtered = phaseFilter === "all" 
+        ? protoSemWeeks 
+        : protoSemWeeks.filter(w => w.phase === parseInt(phaseFilter));
+
+      container.innerHTML = filtered.map(item => `
+        <div 
+          onclick="openWeekModal(${item.week})" 
+          class="week-card glass-card cursor-pointer rounded-2xl p-5 border relative overflow-hidden group focus:outline-none focus:ring-2 focus:ring-purple-400" 
+          tabindex="0" 
+          role="button"
+          aria-label="Open details for ${item.title}"
+          onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openWeekModal(${item.week}); }"
+        >
+          <!-- Top Row: Phase badge & Decorative index -->
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-purple-300 border border-white/10">
+              Phase 0${item.phase}
+            </span>
+            <span class="text-white/30 text-xs font-mono group-hover:text-purple-300 transition-colors">
+              #${item.formatted}
+            </span>
+          </div>
+
+          <!-- Week Title -->
+          <div class="flex items-center justify-between mt-2">
+            <h4 class="text-xl font-black tracking-tight text-white group-hover:text-purple-200 transition-colors">
+              ${item.title}
+            </h4>
+            <span class="card-arrow text-white/40 text-lg transition-transform duration-200">&rarr;</span>
+          </div>
+
+          <!-- Status / Secondary Label -->
+          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px]">
+            <span class="font-semibold tracking-wider text-purple-300/90 uppercase flex items-center gap-1.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-purple-400/80"></span>
+              ${item.secondary}
+            </span>
+            <span class="text-white/40 text-[10px] uppercase tracking-wide">
+              Archive
+            </span>
+          </div>
+
+          <!-- Hover Tooltip Hint -->
+          <div class="hover-hint mt-2 text-[10px] text-purple-200/70 font-medium">
+            &bull; Future Story & Field Notes
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function filterPhase(phase) {
+      currentPhaseFilter = phase;
+      document.querySelectorAll(".phase-pill").forEach(btn => {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-selected", "false");
+      });
+      const targetBtn = document.getElementById(phase === 'all' ? 'tab-all' : `tab-${phase}`);
+      if (targetBtn) {
+        targetBtn.classList.add("active");
+        targetBtn.setAttribute("aria-selected", "true");
+      }
+      renderWeeks(phase);
+    }
+
+    function openWeekModal(weekNum) {
+      const item = protoSemWeeks.find(w => w.week === weekNum);
+      if (!item) return;
+
+      document.getElementById("modal-week").innerText = item.title;
+      document.getElementById("modal-phase").innerText = `PHASE 0${item.phase} &bull; WEEK ${item.formatted} OF 20`;
+      document.getElementById("modal-route").innerText = item.route;
+      
+      const modal = document.getElementById("week-modal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeWeekModal() {
+      const modal = document.getElementById("week-modal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    // Close modal on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeWeekModal();
+    });
+
+    // Initial render
+    document.addEventListener("DOMContentLoaded", () => {
+      renderWeeks("all");
+    });
+    // Fallback if DOM already loaded
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      renderWeeks("all");
+    }
   </script>
 </body>
 </html>
