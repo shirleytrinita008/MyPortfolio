@@ -11,8 +11,10 @@ Personal portfolio website and ATS resume of Shirley Trinita S, B.Com (PA) stude
 - **ProtoSem Section:** [index.html#protosem](index.html#protosem) (Live: [https://shirleytrinita008.github.io/MyPortfolio/#protosem](https://shirleytrinita008.github.io/MyPortfolio/#protosem))
 - **ATS Resume:** [resume.html](resume.html) (Live: [https://shirleytrinita008.github.io/MyPortfolio/resume.html](https://shirleytrinita008.github.io/MyPortfolio/resume.html))
 
-## PRICE ProtoSem Journey
-- **Phase 01:** Week 00 (Orientation / Induction) & Weeks 01–05
+## PRICE ProtoSem Journey Highlights
+- **Phase 01:**
+  - **Week 00:** *Real-World Insights from the Chennai Retail Summit* (Kickoff, Operational Clarity, Strategic Networking, Practical Exposure)
+  - **Weeks 01–05:** Foundations & Discovery
 - **Phase 02:** Weeks 06–10
 - **Phase 03:** Weeks 11–15
 - **Phase 04:** Weeks 16–20
