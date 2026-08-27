@@ -48,6 +48,14 @@
       background: rgba(168, 85, 247, 0.09);
       box-shadow: 0 12px 28px -6px rgba(139, 92, 246, 0.25);
     }
+    .week-card.published {
+      border-color: rgba(168, 85, 247, 0.4);
+      background: rgba(168, 85, 247, 0.06);
+    }
+    .week-card.published:hover {
+      border-color: rgba(168, 85, 247, 0.9);
+      box-shadow: 0 14px 32px -4px rgba(168, 85, 247, 0.4);
+    }
     .week-card:hover .card-arrow {
       transform: translateX(4px);
       color: #c084fc;
@@ -313,21 +321,25 @@
     </section>
   </main>
 
-  <!-- Interactive Placeholder Modal for Week Stories -->
-  <div id="week-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 p-4 backdrop-blur-md transition-opacity">
-    <div class="glass max-w-md w-full rounded-3xl p-6 sm:p-8 text-left border border-purple-500/30 shadow-2xl relative">
-      <button onclick="closeWeekModal()" class="absolute top-5 right-5 text-white/60 hover:text-white text-xl font-bold h-8 w-8 rounded-full bg-white/5 flex items-center justify-center">&times;</button>
-      <div class="inline-flex items-center gap-2 rounded-full bg-purple-500/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-purple-300 mb-3" id="modal-phase">
+  <!-- Interactive Modal for Week Stories -->
+  <div id="week-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4 backdrop-blur-md transition-opacity">
+    <div class="glass max-w-xl w-full rounded-3xl p-6 sm:p-8 text-left border border-purple-500/40 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeWeekModal()" class="absolute top-5 right-5 text-white/60 hover:text-white text-xl font-bold h-8 w-8 rounded-full bg-white/5 flex items-center justify-center transition-colors">&times;</button>
+      
+      <div class="inline-flex items-center gap-2 rounded-full bg-purple-500/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-purple-300 mb-3 border border-purple-500/30" id="modal-phase">
         Phase 01
       </div>
-      <h3 class="text-2xl font-black text-white" id="modal-week">WEEK 00</h3>
-      <p class="text-xs uppercase tracking-widest text-purple-300 font-semibold mt-1">Field Notes in Progress</p>
-      <div class="mt-5 rounded-2xl bg-white/5 p-4 border border-white/10 text-sm text-white/70 space-y-2">
-        <p>Documentation, insights, and stories for this week are currently being compiled as part of the PRICE ProtoSem experience archive.</p>
-        <p class="text-xs text-purple-300/80">Route: <code class="bg-black/40 px-2 py-0.5 rounded text-purple-200" id="modal-route">/protosem/week-00</code></p>
+      
+      <h3 class="text-2xl sm:text-3xl font-black text-white" id="modal-week">WEEK 00</h3>
+      <p class="text-sm font-semibold text-purple-300 mt-1" id="modal-subtitle">Real-World Insights from the Chennai Retail Summit</p>
+      
+      <div class="mt-6 text-sm text-white/80 space-y-4" id="modal-body">
+        <!-- Content populated via JavaScript -->
       </div>
-      <div class="mt-6 flex justify-end">
-        <button onclick="closeWeekModal()" class="rounded-xl bg-purple-600 px-5 py-2.5 text-sm font-semibold hover:bg-purple-500">Got it</button>
+      
+      <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+        <span class="text-xs text-purple-300/80 font-mono" id="modal-route">/protosem/week-00</span>
+        <button onclick="closeWeekModal()" class="rounded-xl bg-purple-600 px-5 py-2.5 text-sm font-semibold hover:bg-purple-500 transition-colors shadow-md shadow-purple-900/40">Close</button>
       </div>
     </div>
   </div>
@@ -348,11 +360,32 @@
         week: 0,
         phase: 1,
         title: "WEEK 00",
+        subtitle: "Real-World Insights from the Chennai Retail Summit",
         formatted: "00",
         slug: "week-00",
-        status: "placeholder",
-        secondary: "ORIENTATION / COMING SOON",
-        route: "/protosem/week-00"
+        status: "published",
+        secondary: "FIELD NOTES PUBLISHED",
+        route: "/protosem/week-00",
+        content: {
+          headline: "Real-World Insights from the Chennai Retail Summit",
+          intro: "There is no better way to start Protosem than by diving straight into the industry. Attending the Chennai Retail Summit was a phenomenal kickoff that helped me transition from classroom concepts to real-world business realities.",
+          takeawaysTitle: "Key takeaways from the experience:",
+          takeaways: [
+            {
+              title: "Operational Clarity",
+              description: "Gained a practical, behind-the-scenes understanding of modern business structures and retail operations."
+            },
+            {
+              title: "Strategic Networking",
+              description: "Connected with industry veterans and professionals, learning directly from their diverse experiences and market perspectives."
+            },
+            {
+              title: "Practical Exposure",
+              description: "Soaked in the current trends and challenges shaping the retail landscape today."
+            }
+          ],
+          conclusion: "I’m grateful for the valuable insights and the new connections made, and I'm excited to carry this momentum into the rest of the program."
+        }
       },
       ...Array.from({ length: 20 }, (_, i) => {
         const weekNum = i + 1;
@@ -366,11 +399,13 @@
           week: weekNum,
           phase: phase,
           title: `WEEK ${formattedNum}`,
+          subtitle: "Field notes in progress",
           formatted: formattedNum,
           slug: `week-${formattedNum}`,
           status: "placeholder",
           secondary: "COMING SOON",
-          route: `/protosem/week-${formattedNum}`
+          route: `/protosem/week-${formattedNum}`,
+          content: null
         };
       })
     ];
@@ -385,10 +420,12 @@
         ? protoSemWeeks 
         : protoSemWeeks.filter(w => w.phase === parseInt(phaseFilter));
 
-      container.innerHTML = filtered.map(item => `
+      container.innerHTML = filtered.map(item => {
+        const isPublished = item.status === "published";
+        return `
         <div 
           onclick="openWeekModal(${item.week})" 
-          class="week-card glass-card cursor-pointer rounded-2xl p-5 border relative overflow-hidden group focus:outline-none focus:ring-2 focus:ring-purple-400" 
+          class="week-card glass-card ${isPublished ? 'published ring-1 ring-purple-500/40 shadow-lg shadow-purple-950/40' : ''} cursor-pointer rounded-2xl p-5 border relative overflow-hidden group focus:outline-none focus:ring-2 focus:ring-purple-400" 
           tabindex="0" 
           role="button"
           aria-label="Open details for ${item.title}"
@@ -396,7 +433,7 @@
         >
           <!-- Top Row: Phase badge & Decorative index -->
           <div class="flex items-center justify-between text-xs mb-3">
-            <span class="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-purple-300 border border-white/10">
+            <span class="rounded-lg ${isPublished ? 'bg-purple-500/20 text-purple-200 border-purple-500/40' : 'bg-white/5 text-purple-300 border-white/10'} px-2.5 py-1 text-[11px] font-semibold border">
               Phase 0${item.phase}
             </span>
             <span class="text-white/30 text-xs font-mono group-hover:text-purple-300 transition-colors">
@@ -404,31 +441,34 @@
             </span>
           </div>
 
-          <!-- Week Title -->
-          <div class="flex items-center justify-between mt-2">
-            <h4 class="text-xl font-black tracking-tight text-white group-hover:text-purple-200 transition-colors">
-              ${item.title}
-            </h4>
-            <span class="card-arrow text-white/40 text-lg transition-transform duration-200">&rarr;</span>
+          <!-- Week Title & Topic -->
+          <div class="flex items-start justify-between mt-2">
+            <div>
+              <h4 class="text-xl font-black tracking-tight text-white group-hover:text-purple-200 transition-colors">
+                ${item.title}
+              </h4>
+              ${isPublished ? `<p class="text-xs font-medium text-purple-300 mt-1 line-clamp-1">${item.subtitle}</p>` : ''}
+            </div>
+            <span class="card-arrow text-white/40 text-lg transition-transform duration-200 ml-2">&rarr;</span>
           </div>
 
           <!-- Status / Secondary Label -->
           <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px]">
-            <span class="font-semibold tracking-wider text-purple-300/90 uppercase flex items-center gap-1.5 truncate">
-              <span class="h-1.5 w-1.5 rounded-full bg-purple-400/80 shrink-0"></span>
+            <span class="font-semibold tracking-wider ${isPublished ? 'text-purple-300' : 'text-purple-300/80'} uppercase flex items-center gap-1.5 truncate">
+              <span class="h-1.5 w-1.5 rounded-full ${isPublished ? 'bg-emerald-400 animate-pulse' : 'bg-purple-400/80'} shrink-0"></span>
               ${item.secondary}
             </span>
             <span class="text-white/40 text-[10px] uppercase tracking-wide shrink-0">
-              Archive
+              ${isPublished ? 'Read Story' : 'Archive'}
             </span>
           </div>
 
           <!-- Hover Tooltip Hint -->
           <div class="hover-hint mt-2 text-[10px] text-purple-200/70 font-medium">
-            &bull; Future Story & Field Notes
+            &bull; ${isPublished ? 'Click to read field notes' : 'Future Story & Field Notes'}
           </div>
         </div>
-      `).join("");
+      `}).join("");
     }
 
     function filterPhase(phase) {
@@ -452,6 +492,45 @@
       document.getElementById("modal-week").innerText = item.title;
       document.getElementById("modal-phase").innerText = `PHASE 0${item.phase} &bull; WEEK ${item.formatted}`;
       document.getElementById("modal-route").innerText = item.route;
+      
+      const subtitleEl = document.getElementById("modal-subtitle");
+      const bodyEl = document.getElementById("modal-body");
+
+      if (item.content) {
+        subtitleEl.innerText = item.content.headline;
+        bodyEl.innerHTML = `
+          <div class="rounded-2xl bg-purple-950/30 p-5 border border-purple-500/20 text-white/90 leading-relaxed text-sm">
+            <p class="text-purple-200 font-medium">${item.content.intro}</p>
+          </div>
+
+          <div class="mt-4">
+            <h5 class="text-xs uppercase tracking-widest text-purple-300 font-bold mb-3">${item.content.takeawaysTitle}</h5>
+            <div class="space-y-3">
+              ${item.content.takeaways.map(t => `
+                <div class="rounded-xl bg-white/[0.04] p-4 border border-white/10 hover:border-purple-500/30 transition-colors">
+                  <span class="block text-sm font-bold text-white mb-1 flex items-center gap-2">
+                    <span class="h-2 w-2 rounded-full bg-purple-400"></span>
+                    ${t.title}
+                  </span>
+                  <p class="text-xs text-white/70 leading-relaxed pl-4">${t.description}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-white/[0.02] p-4 border border-white/5 text-xs text-white/70 italic leading-relaxed">
+            "${item.content.conclusion}"
+          </div>
+        `;
+      } else {
+        subtitleEl.innerText = "Field Notes in Progress";
+        bodyEl.innerHTML = `
+          <div class="rounded-2xl bg-white/5 p-5 border border-white/10 text-sm text-white/70 space-y-3">
+            <p>Documentation, insights, and stories for this week are currently being compiled as part of the PRICE ProtoSem experience archive.</p>
+            <p class="text-xs text-purple-300/80">Each milestone will showcase practical problem statements, architecture decisions, and learning takeaways as the programme unfolds.</p>
+          </div>
+        `;
+      }
       
       const modal = document.getElementById("week-modal");
       modal.classList.remove("hidden");
