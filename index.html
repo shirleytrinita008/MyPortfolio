@@ -573,6 +573,86 @@
             </div>
           </div>
 
+          <!-- WEEK 03 BLOG -->
+          <div data-phase="p1" class="archive-card glass rounded-2xl p-5 col-span-full">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-bold text-violet-300">WEEK 03</p>
+                <h3 class="mt-2 font-bold text-lg">Electronics, Circuits &amp; Web Development</h3>
+                <p class="mt-1 text-sm text-white/45">Electronics · PCB · Tinkercad · Web Dev · Soldering</p>
+              </div>
+              <button id="week03Toggle"
+                class="mt-1 flex-shrink-0 rounded-xl bg-violet-600/30 border border-violet-400/30 px-4 py-2 text-xs font-bold text-violet-200 hover:bg-violet-600/60 transition-all"
+                aria-expanded="false">Read More ↓</button>
+            </div>
+            <div id="week03Content" class="hidden mt-6">
+
+              <!-- Day 4 -->
+              <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                <h4 class="font-bold text-fuchsia-300 flex items-center gap-2"><span>📅</span> Day 4 – Basics of Electronics</h4>
+                <p class="mt-3 text-sm leading-7 text-white/65">
+                  Day 4 introduced us to the basics of electronics, including capacitors, semiconductors, conductors,
+                  voltage, current (AC &amp; DC), and resistors. We then used <strong class="text-white/80">Tinkercad</strong>
+                  to practically apply what we learned. We built a basic circuit on a breadboard by connecting a battery,
+                  resistor and bulb, and made the bulb glow. This helped us understand how electrical components work together.
+                </p>
+              </div>
+
+              <!-- Day 5 -->
+              <div class="mt-4 rounded-2xl bg-white/5 border border-white/10 p-5">
+                <h4 class="font-bold text-indigo-300 flex items-center gap-2"><span>📅</span> Day 5 – From Simulation to Real Circuit</h4>
+                <p class="mt-3 text-sm leading-7 text-white/65">
+                  On Day 5, we took our Tinkercad circuit and manually recreated it on a breadboard. We also built the
+                  circuit on a <strong class="text-white/80">PCB board</strong> and used a <strong class="text-white/80">multimeter</strong>
+                  to check the electrical connections. Finally, we learned basic <strong class="text-white/80">soldering</strong>
+                  and secured the components to the PCB using an LED. This gave us hands-on experience in building a real
+                  electronic circuit.
+                </p>
+              </div>
+
+              <!-- Day 6 -->
+              <div class="mt-4 rounded-2xl bg-white/5 border border-white/10 p-5">
+                <h4 class="font-bold text-purple-300 flex items-center gap-2"><span>📅</span> Day 6 – Technology &amp; Web Development</h4>
+                <p class="mt-3 text-sm leading-7 text-white/65">
+                  Day 6 focused on exploring more technology. We learned the basics of changing the operating system (OS)
+                  in laptops. We also created a gaming website called <strong class="text-white/80">&ldquo;Hocky&rdquo;</strong>
+                  using Antigravity and explored web application plugins for Chrome. This session helped us understand how
+                  modern tools can be used to create websites and explore new digital possibilities.
+                </p>
+              </div>
+
+              <!-- Key Takeaway -->
+              <div class="mt-5 rounded-2xl bg-gradient-to-br from-violet-500/15 to-indigo-500/10 border border-violet-400/25 p-5">
+                <h4 class="font-bold text-white flex items-center gap-2"><span>✨</span> Key Takeaway</h4>
+                <p class="mt-3 text-sm leading-7 text-white/65">
+                  As a B.Com PA student, this ProtoSem experience helped me step outside my domain and learn something
+                  completely different through practical activities. Working with electronics, circuits, soldering, web
+                  development and new technologies gave me hands-on exposure and helped me understand the importance of
+                  learning beyond our academic field.
+                </p>
+              </div>
+
+              <!-- Photos -->
+              <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div class="overflow-hidden rounded-2xl border border-white/10">
+                  <img src="images/image.png" alt="Week 03 – Electronics Activity"
+                    class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500">
+                  <p class="p-2 text-center text-xs text-white/35">Electronics Activity – Week 03</p>
+                </div>
+                <div class="overflow-hidden rounded-2xl border border-white/10">
+                  <img src="images/pcb board back.jpeg" alt="PCB Board Back"
+                    class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500">
+                  <p class="p-2 text-center text-xs text-white/35">PCB Board – Back</p>
+                </div>
+                <div class="overflow-hidden rounded-2xl border border-white/10">
+                  <img src="images/pcb board front.jpeg" alt="PCB Board Front"
+                    class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500">
+                  <p class="p-2 text-center text-xs text-white/35">PCB Board – Front</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div data-phase="p1" class="archive-card glass rounded-2xl p-5">
             <p class="text-xs font-bold text-violet-300">WEEKS 01–05</p>
             <h3 class="mt-2 font-bold">Phase 01 Archive</h3>
@@ -663,6 +743,17 @@
         week01Content.classList.toggle('hidden', isOpen);
         week01Btn.textContent = isOpen ? 'Read More ↓' : 'Collapse ↑';
         week01Btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    }
+
+    const week03Btn = document.getElementById('week03Toggle');
+    const week03Content = document.getElementById('week03Content');
+    if (week03Btn && week03Content) {
+      week03Btn.addEventListener('click', () => {
+        const isOpen = !week03Content.classList.contains('hidden');
+        week03Content.classList.toggle('hidden', isOpen);
+        week03Btn.textContent = isOpen ? 'Read More ↓' : 'Collapse ↑';
+        week03Btn.setAttribute('aria-expanded', String(!isOpen));
       });
     }
   </script>
