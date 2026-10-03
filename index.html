@@ -737,6 +737,265 @@
             </div>
           </div>
 
+          <!-- WEEK 06 BLOG -->
+          <div data-phase="p2" class="archive-card glass rounded-2xl p-5 col-span-full">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-bold text-fuchsia-300">WEEK 06</p>
+                <h3 class="mt-2 font-bold text-lg">Laser Cutting &amp; 3D Printing</h3>
+                <p class="mt-1 text-sm text-white/45">Digital Fabrication · RDWorks · CO₂ Laser · FDM · Bambu Lab H2S</p>
+              </div>
+              <button id="week06Toggle"
+                class="mt-1 flex-shrink-0 rounded-xl bg-fuchsia-600/30 border border-fuchsia-400/30 px-4 py-2 text-xs font-bold text-fuchsia-200 hover:bg-fuchsia-600/60 transition-all"
+                aria-expanded="false">Read More ↓</button>
+            </div>
+
+            <div id="week06Content" class="hidden mt-6">
+
+              <!-- Topic Tabs -->
+              <div class="flex gap-2 mb-6">
+                <button id="w06tabLaser"
+                  class="w06-tab rounded-xl bg-fuchsia-600 px-5 py-2 text-xs font-bold text-white transition-all"
+                  data-tab="laser">🔆 Laser Cutting</button>
+                <button id="w06tab3D"
+                  class="w06-tab rounded-xl bg-white/10 px-5 py-2 text-xs font-bold text-white/60 hover:bg-white/20 transition-all"
+                  data-tab="3d">🖨️ 3D Printing</button>
+              </div>
+
+              <!-- ===== LASER CUTTING PANEL ===== -->
+              <div id="w06panelLaser">
+
+                <div class="rounded-2xl bg-fuchsia-500/10 border border-fuchsia-400/20 p-5 mb-4">
+                  <h4 class="font-bold text-fuchsia-200 flex items-center gap-2">🔆 What is Laser Cutting?</h4>
+                  <p class="mt-3 text-sm leading-7 text-white/65">Laser cutting is a digital fabrication process that uses a focused laser beam to cut, engrave, or mark materials. The laser is controlled by a computer according to a digital design. It provides accurate, clean, and detailed cuts and is commonly used on materials such as acrylic, wood, cardboard, and some metals.</p>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+
+                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                    <h4 class="font-bold text-fuchsia-300 text-sm mb-3">⚙️ How Laser Cutting Works</h4>
+                    <ul class="space-y-2 text-sm text-white/65">
+                      <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span>Digital design created in RDWorks</li>
+                      <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span>Design sent to laser cutting machine</li>
+                      <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span>Focused laser beam produces intense heat</li>
+                      <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span>Material melts, burns or vaporizes along path</li>
+                      <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span>Machine moves laser according to design</li>
+                    </ul>
+                    <div class="mt-4 overflow-hidden rounded-xl border border-white/10">
+                      <img src="laser work.png" alt="Laser Cutting Process" class="w-full h-40 object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                  </div>
+
+                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                    <h4 class="font-bold text-fuchsia-300 text-sm mb-3">💡 Types of Lasers</h4>
+                    <ul class="space-y-2 text-sm text-white/65">
+                      <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span><span><strong class="text-white/80">CO₂ Laser</strong> – Acrylic, wood, cardboard</span></li>
+                      <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span><span><strong class="text-white/80">Fiber Laser</strong> – Cutting &amp; marking metals</span></li>
+                      <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span><span><strong class="text-white/80">Diode Laser</strong> – Engraving wood &amp; acrylic</span></li>
+                      <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span><span><strong class="text-white/80">Nd:YAG Laser</strong> – Industrial metal applications</span></li>
+                    </ul>
+                    <div class="mt-4 overflow-hidden rounded-xl border border-white/10">
+                      <img src="safety.png" alt="Lab Safety Rules" class="w-full h-40 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-1 text-center text-xs text-white/35">Lab Safety Rules</p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="mt-4 rounded-2xl bg-white/5 border border-white/10 p-5">
+                  <h4 class="font-bold text-fuchsia-300 text-sm mb-3">🔩 Machine Details &amp; Materials</h4>
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <div class="overflow-hidden rounded-xl border border-white/10 mb-3">
+                        <img src="machinedetails.png" alt="Machine Details" class="w-full h-40 object-cover hover:scale-105 transition-transform duration-500">
+                        <p class="p-1 text-center text-xs text-white/35">Machine Details</p>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Material Used</p>
+                      <table class="w-full text-xs text-white/65 border-collapse">
+                        <thead><tr class="text-white/40"><th class="text-left py-1 pr-3">Parameter</th><th class="text-left py-1">Details</th></tr></thead>
+                        <tbody>
+                          <tr class="border-t border-white/10"><td class="py-1 pr-3">Material Type</td><td>Acrylic sheet</td></tr>
+                          <tr class="border-t border-white/10"><td class="py-1 pr-3">Thickness</td><td>02 mm</td></tr>
+                          <tr class="border-t border-white/10"><td class="py-1 pr-3">Colour</td><td>Transparent</td></tr>
+                        </tbody>
+                      </table>
+                      <p class="mt-3 text-xs leading-6 text-white/55">Acrylic is a lightweight thermoplastic material that can be cut and engraved using a CO₂ laser, commonly used for signs, decorative products, nameplates and prototypes.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                    <h4 class="font-bold text-fuchsia-300 text-sm mb-3">🎨 Selected Design &amp; DXF Conversion</h4>
+                    <div class="overflow-hidden rounded-xl border border-white/10 mb-3">
+                      <img src="stitch.jpg" alt="Selected Design" class="w-full h-40 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-1 text-center text-xs text-white/35">Selected Design (Stitch)</p>
+                    </div>
+                    <p class="text-xs leading-6 text-white/65">The design was chosen for its engraving and cutting elements. It was converted to vector DXF format, cleaned of duplicate lines and imported into RDWorks for processing.</p>
+                    <a href="stitch.dxf" download class="mt-3 inline-flex items-center gap-1 rounded-lg bg-fuchsia-600/20 border border-fuchsia-400/20 px-3 py-1.5 text-xs font-bold text-fuchsia-300 hover:bg-fuchsia-600/40 transition-all">⬇ Download DXF</a>
+                  </div>
+
+                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                    <h4 class="font-bold text-fuchsia-300 text-sm mb-3">🗂️ RDWorks Layout</h4>
+                    <div class="overflow-hidden rounded-xl border border-white/10 mb-3">
+                      <img src="laser op.png" alt="RDWorks Layout" class="w-full h-40 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-1 text-center text-xs text-white/35">RDWorks Nesting &amp; Layout</p>
+                    </div>
+                    <table class="w-full text-xs text-white/65 border-collapse">
+                      <thead><tr class="text-white/40"><th class="text-left py-1 pr-3">Layer</th><th class="text-left py-1 pr-3">Operation</th><th class="text-left py-1">Colour</th></tr></thead>
+                      <tbody>
+                        <tr class="border-t border-white/10"><td class="py-1 pr-3">Layer 1</td><td>Engraving</td><td class="text-blue-400">BLUE</td></tr>
+                        <tr class="border-t border-white/10"><td class="py-1 pr-3">Layer 2</td><td>Cutting</td><td class="text-gray-300">BLACK</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="mt-4 rounded-2xl bg-white/5 border border-white/10 p-5">
+                  <h4 class="font-bold text-fuchsia-300 text-sm mb-3">▶️ Cutting Process &amp; Final Result</h4>
+                  <div class="grid gap-4 sm:grid-cols-3">
+                    <div class="overflow-hidden rounded-xl border border-white/10">
+                      <video src="print video.mp4" controls class="w-full h-40 object-cover"></video>
+                      <p class="p-1 text-center text-xs text-white/35">Laser Cutting Video</p>
+                    </div>
+                    <div class="overflow-hidden rounded-xl border border-white/10">
+                      <img src="laser print.jpeg" alt="Cutting Process" class="w-full h-40 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-1 text-center text-xs text-white/35">Cutting Process</p>
+                    </div>
+                    <div class="overflow-hidden rounded-xl border border-white/10">
+                      <img src="OP1.jpeg" alt="Final Result" class="w-full h-40 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-1 text-center text-xs text-white/35">Final Result – Hero Shot</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                    <h4 class="font-bold text-fuchsia-300 text-sm mb-2">⚠️ Problems Faced &amp; Solutions</h4>
+                    <p class="text-xs leading-6 text-white/65">I had some difficulties when processing and preparing the design. I corrected the initial alignment in RDWorks, cleaned duplicate geometry, adjusted machine settings for incomplete cuts, and properly managed the exhaust and air-assist systems. Following these adjustments, the cutting and engraving was successfully completed with better accuracy and quality.</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                    <h4 class="font-bold text-fuchsia-300 text-sm mb-2">💭 Reflection</h4>
+                    <p class="text-xs leading-6 text-white/65">This exercise taught me the fundamentals of laser cutting — design selection, file conversion, RDWorks preparation, and safe machine operation. I gained practical skills in vector file preparation, laser machine operation, and troubleshooting. I would devote more effort to testing design and machine parameters before the final cut in future.</p>
+                    <div class="mt-3 flex gap-2">
+                      <a href="stitch.dxf" download class="inline-flex items-center gap-1 rounded-lg bg-fuchsia-600/20 border border-fuchsia-400/20 px-3 py-1.5 text-xs font-bold text-fuchsia-300 hover:bg-fuchsia-600/40 transition-all">⬇ DXF File</a>
+                      <a href="shirley trinita.ai" download class="inline-flex items-center gap-1 rounded-lg bg-white/5 border border-white/10 px-3 py-1.5 text-xs font-bold text-white/60 hover:bg-white/10 transition-all">⬇ AI File</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <!-- ===== END LASER CUTTING ===== -->
+
+              <!-- ===== 3D PRINTING PANEL ===== -->
+              <div id="w06panel3D" class="hidden">
+
+                <div class="rounded-2xl bg-indigo-500/10 border border-indigo-400/20 p-5 mb-4">
+                  <h4 class="font-bold text-indigo-200 flex items-center gap-2">🖨️ What is 3D Printing?</h4>
+                  <p class="mt-3 text-sm leading-7 text-white/65">3D printing is a digital manufacturing process used to create three-dimensional objects from a digital design. The object is made by adding material layer by layer until the complete model is formed.</p>
+                  <div class="mt-4 overflow-hidden rounded-xl border border-white/10">
+                    <img src="3d print.png" alt="3D Printing" class="w-full h-44 object-cover hover:scale-105 transition-transform duration-500">
+                  </div>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+
+                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                    <h4 class="font-bold text-indigo-300 text-sm mb-3">⚙️ How 3D Printing Works</h4>
+                    <ul class="space-y-2 text-sm text-white/65">
+                      <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>3D model created using design software</li>
+                      <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Model converted and prepared in Bambu Studio</li>
+                      <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Slicer divides model into thin layers &amp; generates G-code</li>
+                      <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Printer deposits material layer by layer</li>
+                    </ul>
+                    <h4 class="font-bold text-indigo-300 text-sm mt-4 mb-2">🧪 Types of 3D Printing</h4>
+                    <ul class="space-y-1.5 text-xs text-white/65">
+                      <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">FDM</strong> – Melted plastic filament</span></li>
+                      <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">SLA</strong> – Liquid resin cured by light</span></li>
+                      <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">SLS</strong> – Laser fuses powdered material</span></li>
+                      <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">DLP</strong> – Projected light to cure resin</span></li>
+                    </ul>
+                    <div class="mt-4 overflow-hidden rounded-xl border border-white/10">
+                      <img src="3d print type.webp" alt="3D Printing Types" class="w-full h-40 object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                  </div>
+
+                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                    <h4 class="font-bold text-indigo-300 text-sm mb-3">🖨️ Printer Details – Bambu Lab H2S</h4>
+                    <div class="overflow-hidden rounded-xl border border-white/10 mb-3">
+                      <img src="bambu h2s.png" alt="Bambu Lab H2S" class="w-full h-36 object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <ul class="space-y-1.5 text-xs text-white/65">
+                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Build volume: 340 × 320 × 340 mm</li>
+                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Nozzle: 0.4 mm (supports 0.2–0.8 mm)</li>
+                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Max nozzle temp: 350°C</li>
+                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Max bed temp: 120°C</li>
+                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Filament: 1.75 mm</li>
+                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Max speed: 1000 mm/s</li>
+                    </ul>
+                    <h4 class="font-bold text-indigo-300 text-sm mt-4 mb-2">🧱 Common Materials</h4>
+                    <div class="flex flex-wrap gap-1">
+                      <span class="rounded-full bg-indigo-400/10 px-2 py-0.5 text-xs text-indigo-200">PLA</span>
+                      <span class="rounded-full bg-indigo-400/10 px-2 py-0.5 text-xs text-indigo-200">ABS</span>
+                      <span class="rounded-full bg-indigo-400/10 px-2 py-0.5 text-xs text-indigo-200">PETG</span>
+                      <span class="rounded-full bg-indigo-400/10 px-2 py-0.5 text-xs text-indigo-200">TPU</span>
+                      <span class="rounded-full bg-indigo-400/10 px-2 py-0.5 text-xs text-indigo-200">Resin</span>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                    <h4 class="font-bold text-indigo-300 text-sm mb-3">🗂️ Slicer, STL &amp; Settings</h4>
+                    <p class="text-xs leading-6 text-white/65 mb-3">The model was sliced using <strong class="text-white/80">Bambu Studio</strong>. An STL (Stereolithography) file represents 3D surface geometry using triangular faces, supported by all major slicing programs.</p>
+                    <div class="overflow-hidden rounded-xl border border-white/10 mb-3">
+                      <img src="slicer set.png" alt="Slicer Settings" class="w-full h-36 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-1 text-center text-xs text-white/35">Slicer Settings</p>
+                    </div>
+                    <div class="overflow-hidden rounded-xl border border-white/10">
+                      <img src="3d op.png" alt="STL Model" class="w-full h-36 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-1 text-center text-xs text-white/35">STL Model View</p>
+                    </div>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                      <a href="Worldcup stl.stl" download class="inline-flex items-center gap-1 rounded-lg bg-indigo-600/20 border border-indigo-400/20 px-3 py-1.5 text-xs font-bold text-indigo-300 hover:bg-indigo-600/40 transition-all">⬇ STL File</a>
+                      <a href="shirley trinita.gcode.3mf" download class="inline-flex items-center gap-1 rounded-lg bg-white/5 border border-white/10 px-3 py-1.5 text-xs font-bold text-white/60 hover:bg-white/10 transition-all">⬇ 3MF File</a>
+                    </div>
+                  </div>
+
+                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+                    <h4 class="font-bold text-indigo-300 text-sm mb-3">🖨️ Printing Process &amp; Final Result</h4>
+                    <div class="overflow-hidden rounded-xl border border-white/10 mb-3">
+                      <img src="pla material type.jpg" alt="PLA Material" class="w-full h-32 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-1 text-center text-xs text-white/35">PLA Material</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                      <div class="overflow-hidden rounded-xl border border-white/10">
+                        <img src="3d work.jpeg" alt="3D Printing in Progress" class="w-full h-32 object-cover hover:scale-105 transition-transform duration-500">
+                        <p class="p-1 text-center text-xs text-white/35">Printing in Progress</p>
+                      </div>
+                      <div class="overflow-hidden rounded-xl border border-white/10">
+                        <img src="print.jpeg" alt="Final 3D Print" class="w-full h-32 object-cover hover:scale-105 transition-transform duration-500">
+                        <p class="p-1 text-center text-xs text-white/35">Final Result</p>
+                      </div>
+                    </div>
+                    <p class="mt-3 text-xs leading-6 text-white/65">The completed object was removed from the print bed and inspected for overall shape, surface quality, dimensional accuracy and any visible printing defects.</p>
+                  </div>
+                </div>
+
+                <div class="mt-4 rounded-2xl bg-gradient-to-br from-indigo-500/15 to-violet-500/10 border border-indigo-400/25 p-5">
+                  <h4 class="font-bold text-white text-sm mb-2">💡 Why 3D Printing Over Subtractive Manufacturing?</h4>
+                  <p class="text-xs leading-6 text-white/65">The selected object contains complex internal geometry, enclosed spaces and curved structures that are difficult to produce using conventional subtractive methods (cutting, drilling, milling). 3D printing builds the object layer by layer, making such complex geometries straightforward to produce without multiple tool setups.</p>
+                </div>
+
+              </div>
+              <!-- ===== END 3D PRINTING ===== -->
+
+            </div>
+          </div>
+
           <div data-phase="p1" class="archive-card glass rounded-2xl p-5">
             <p class="text-xs font-bold text-violet-300">WEEKS 01–05</p>
             <h3 class="mt-2 font-bold">Phase 01 Archive</h3>
@@ -851,6 +1110,30 @@
         week03Btn.setAttribute('aria-expanded', String(!isOpen));
       });
     }
+
+    // Week 06 toggle
+    const week06Btn = document.getElementById('week06Toggle');
+    const week06Content = document.getElementById('week06Content');
+    if (week06Btn && week06Content) {
+      week06Btn.addEventListener('click', () => {
+        const isOpen = !week06Content.classList.contains('hidden');
+        week06Content.classList.toggle('hidden', isOpen);
+        week06Btn.textContent = isOpen ? 'Read More ↓' : 'Collapse ↑';
+        week06Btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    }
+
+    // Week 06 topic tabs
+    const w06tabs = document.querySelectorAll('.w06-tab');
+    const w06panels = { laser: document.getElementById('w06panelLaser'), '3d': document.getElementById('w06panel3D') };
+    w06tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+        w06tabs.forEach(t => { t.classList.remove('bg-fuchsia-600', 'bg-indigo-600', 'text-white'); t.classList.add('bg-white/10', 'text-white/60'); });
+        btn.classList.remove('bg-white/10', 'text-white/60'); btn.classList.add(tab === '3d' ? 'bg-indigo-600' : 'bg-fuchsia-600', 'text-white');
+        Object.entries(w06panels).forEach(([key, el]) => el && el.classList.toggle('hidden', key !== tab));
+      });
+    });
   </script>
 </body>
 
