@@ -8,6 +8,7 @@
   <meta name="description"
     content="Portfolio of Shirley Trinita S — B.Com (PA) student, Finance & Innovation Aspirant, and Innovation Engineer Trainee in the PRICE ProtoSem programme.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -123,6 +124,38 @@
 
     .bar {
       transition: width 1.2s ease
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 450px;
+      border-radius: 1rem;
+      background: radial-gradient(ellipse at 50% 40%, rgba(99,102,241,.15), rgba(8,6,17,.97) 70%);
+      --poster-color: transparent;
+      display: block;
+    }
+
+    model-viewer::part(default-progress-bar) {
+      background: linear-gradient(90deg, #c084fc, #818cf8);
+      height: 4px;
+    }
+
+    .model-viewer-wrapper {
+      position: relative;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(8,6,17,0.8);
+    }
+
+    .model-viewer-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(99,102,241,0.06), transparent 50%);
+      pointer-events: none;
+      z-index: 1;
     }
   </style>
 </head>
@@ -809,92 +842,152 @@
               </div>
               <!-- 3D PRINTING PANEL -->
               <div id="w06panel3D" class="hidden">
-                <div class="rounded-2xl bg-indigo-500/10 border border-indigo-400/20 p-5 mb-4">
-                  <h4 class="font-bold text-indigo-200 flex items-center gap-2">🖨️ What is 3D Printing?</h4>
+
+                <!-- ═══════ HERO: 3D MODEL VIEWER ═══════ -->
+                <div class="rounded-2xl border border-indigo-400/25 bg-gradient-to-br from-indigo-500/12 via-white/[.035] to-violet-500/10 p-6 mb-6">
+                  <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-5">
+                    <div>
+                      <div class="inline-flex items-center gap-2 rounded-full bg-indigo-400/10 px-3 py-1 text-[10px] font-bold tracking-widest text-indigo-200 mb-3">
+                        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-indigo-400"></span>INTERACTIVE 3D MODEL
+                      </div>
+                      <h4 class="text-xl font-black text-white">🏆 World Cup Trophy</h4>
+                      <p class="mt-1 text-sm text-white/50">Rotate, zoom &amp; explore the 3D-printed model in real time</p>
+                    </div>
+                    <div class="flex gap-2 flex-shrink-0">
+                      <a href="Worldcup.glb" download class="inline-flex items-center gap-1.5 rounded-xl bg-indigo-600/25 border border-indigo-400/25 px-4 py-2 text-xs font-bold text-indigo-300 hover:bg-indigo-600/50 transition-all">⬇ GLB File</a>
+                      <a href="Worldcup stl.stl" download class="inline-flex items-center gap-1.5 rounded-xl bg-white/5 border border-white/10 px-4 py-2 text-xs font-bold text-white/60 hover:bg-white/10 transition-all">⬇ STL File</a>
+                    </div>
+                  </div>
+                  <div class="model-viewer-wrapper">
+                    <model-viewer
+                      id="worldcupModel"
+                      src="Worldcup.glb"
+                      alt="World Cup Trophy – 3D Printed Model"
+                      camera-controls
+                      auto-rotate
+                      auto-rotate-delay="500"
+                      rotation-per-second="15deg"
+                      shadow-intensity="1.5"
+                      shadow-softness="0.8"
+                      exposure="1.25"
+                      bounds="tight"
+                      camera-orbit="0deg 75deg auto"
+                      min-camera-orbit="auto auto 30%"
+                      max-camera-orbit="auto auto 300%"
+                      interaction-prompt="auto"
+                      interaction-prompt-style="basic"
+                      loading="eager"
+                      reveal="auto"
+                      poster="3d op.png"
+                      style="touch-action: pan-y; width: 100%; height: 500px;"
+                    >
+                    </model-viewer>
+                  </div>
+                  <div class="mt-3 flex items-center justify-between">
+                    <div class="flex items-center gap-2 text-xs text-white/40">
+                      <span class="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                      Click &amp; drag to rotate · Scroll to zoom · Pinch on mobile
+                    </div>
+                    <span class="text-[10px] font-bold text-white/25 tracking-wider">GLB · 113 MB</span>
+                  </div>
+                </div>
+
+                <!-- ═══════ WHAT IS 3D PRINTING ═══════ -->
+                <div class="rounded-2xl bg-indigo-500/10 border border-indigo-400/20 p-5 mb-5">
+                  <h4 class="font-bold text-indigo-200 flex items-center gap-2 text-base">🖨️ What is 3D Printing?</h4>
                   <p class="mt-3 text-sm leading-7 text-white/65">3D printing is a digital manufacturing process used to create three-dimensional objects from a digital design. The object is made by adding material layer by layer until the complete model is formed.</p>
                   <div class="mt-4 overflow-hidden rounded-xl border border-white/10">
-                    <img src="3d print.png" alt="3D Printing" class="w-full h-44 object-cover hover:scale-105 transition-transform duration-500">
+                    <img src="3d print.png" alt="3D Printing" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500">
                   </div>
                 </div>
-                <div class="grid gap-4 sm:grid-cols-2">
-                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
-                    <h4 class="font-bold text-indigo-300 text-sm mb-3">⚙️ How 3D Printing Works</h4>
-                    <ul class="space-y-2 text-sm text-white/65">
-                      <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>3D model created using design software</li>
-                      <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Model converted and prepared in Bambu Studio</li>
-                      <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Slicer divides model into thin layers &amp; generates G-code</li>
-                      <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Printer deposits material layer by layer</li>
-                    </ul>
-                    <h4 class="font-bold text-indigo-300 text-sm mt-4 mb-2">🖨 Types of 3D Printing</h4>
-                    <ul class="space-y-1.5 text-xs text-white/65">
-                      <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">FDM</strong> – Melted plastic filament</span></li>
-                      <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">SLA</strong> – Liquid resin cured by light</span></li>
-                      <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">SLS</strong> – Laser fuses powdered material</span></li>
-                      <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">DLP</strong> – Projected light to cure resin</span></li>
-                    </ul>
-                    <div class="mt-4 overflow-hidden rounded-xl border border-white/10">
-                      <img src="3d print type.webp" alt="3D Printing Types" class="w-full h-40 object-cover hover:scale-105 transition-transform duration-500">
-                    </div>
+
+                <!-- ═══════ HOW IT WORKS ═══════ -->
+                <div class="rounded-2xl bg-white/5 border border-white/10 p-5 mb-5">
+                  <h4 class="font-bold text-indigo-300 text-base mb-3">⚙️ How 3D Printing Works</h4>
+                  <ul class="space-y-2 text-sm text-white/65 mb-4">
+                    <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>3D model created using design software</li>
+                    <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Model converted and prepared in Bambu Studio</li>
+                    <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Slicer divides model into thin layers &amp; generates G-code</li>
+                    <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Printer deposits material layer by layer</li>
+                  </ul>
+                  <h4 class="font-bold text-indigo-300 text-sm mt-5 mb-2">🖨 Types of 3D Printing</h4>
+                  <ul class="space-y-1.5 text-xs text-white/65 mb-4">
+                    <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">FDM</strong> – Melted plastic filament</span></li>
+                    <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">SLA</strong> – Liquid resin cured by light</span></li>
+                    <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">SLS</strong> – Laser fuses powdered material</span></li>
+                    <li class="flex gap-2"><span class="text-indigo-400">▸</span><span><strong class="text-white/80">DLP</strong> – Projected light to cure resin</span></li>
+                  </ul>
+                  <div class="overflow-hidden rounded-xl border border-white/10">
+                    <img src="3d print type.webp" alt="3D Printing Types" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500">
                   </div>
-                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
-                    <h4 class="font-bold text-indigo-300 text-sm mb-3">🖨️ Printer Details – Bambu Lab H2S</h4>
-                    <div class="overflow-hidden rounded-xl border border-white/10 mb-3">
-                      <img src="bambu h2s.png" alt="Bambu Lab H2S" class="w-full h-36 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+
+                <!-- ═══════ PRINTER DETAILS ═══════ -->
+                <div class="rounded-2xl bg-white/5 border border-white/10 p-5 mb-5">
+                  <h4 class="font-bold text-indigo-300 text-base mb-3">🖨️ Printer Details – Bambu Lab H2S</h4>
+                  <div class="overflow-hidden rounded-xl border border-white/10 mb-4">
+                    <img src="bambu h2s.png" alt="Bambu Lab H2S" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-500">
+                  </div>
+                  <ul class="space-y-2 text-sm text-white/65 mb-4">
+                    <li class="flex gap-2"><span class="text-indigo-400">▸</span>Build volume: 340 × 320 × 340 mm</li>
+                    <li class="flex gap-2"><span class="text-indigo-400">▸</span>Nozzle: 0.4 mm (supports 0.2–0.8 mm)</li>
+                    <li class="flex gap-2"><span class="text-indigo-400">▸</span>Max nozzle temp: 350°C</li>
+                    <li class="flex gap-2"><span class="text-indigo-400">▸</span>Max bed temp: 120°C</li>
+                    <li class="flex gap-2"><span class="text-indigo-400">▸</span>Filament: 1.75 mm</li>
+                    <li class="flex gap-2"><span class="text-indigo-400">▸</span>Max speed: 1000 mm/s</li>
+                  </ul>
+                  <h4 class="font-bold text-indigo-300 text-sm mt-4 mb-2">🧱 Common Materials</h4>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="rounded-full bg-indigo-400/10 px-3 py-1 text-xs font-semibold text-indigo-200 border border-indigo-400/20">PLA</span>
+                    <span class="rounded-full bg-indigo-400/10 px-3 py-1 text-xs font-semibold text-indigo-200 border border-indigo-400/20">ABS</span>
+                    <span class="rounded-full bg-indigo-400/10 px-3 py-1 text-xs font-semibold text-indigo-200 border border-indigo-400/20">PETG</span>
+                    <span class="rounded-full bg-indigo-400/10 px-3 py-1 text-xs font-semibold text-indigo-200 border border-indigo-400/20">TPU</span>
+                    <span class="rounded-full bg-indigo-400/10 px-3 py-1 text-xs font-semibold text-indigo-200 border border-indigo-400/20">Resin</span>
+                  </div>
+                </div>
+
+                <!-- ═══════ SLICER & SETTINGS ═══════ -->
+                <div class="rounded-2xl bg-white/5 border border-white/10 p-5 mb-5">
+                  <h4 class="font-bold text-indigo-300 text-base mb-3">🖥️ Slicer, STL &amp; Settings</h4>
+                  <p class="text-sm leading-6 text-white/65 mb-4">The model was sliced using <strong class="text-white/80">Bambu Studio</strong>. An STL (Stereolithography) file represents 3D surface geometry using triangular faces, supported by all major slicing programs.</p>
+                  <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex-1 overflow-hidden rounded-xl border border-white/10">
+                      <img src="slicer set.png" alt="Slicer Settings" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-2 text-center text-xs text-white/40">Slicer Settings</p>
                     </div>
-                    <ul class="space-y-1.5 text-xs text-white/65">
-                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Build volume: 340 × 320 × 340 mm</li>
-                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Nozzle: 0.4 mm (supports 0.2–0.8 mm)</li>
-                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Max nozzle temp: 350°C</li>
-                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Max bed temp: 120°C</li>
-                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Filament: 1.75 mm</li>
-                      <li class="flex gap-2"><span class="text-indigo-400">▸</span>Max speed: 1000 mm/s</li>
-                    </ul>
-                    <h4 class="font-bold text-indigo-300 text-sm mt-4 mb-2">🧱 Common Materials</h4>
-                    <div class="flex flex-wrap gap-1">
-                      <span class="rounded-full bg-indigo-400/10 px-2 py-0.5 text-xs text-indigo-200">PLA</span>
-                      <span class="rounded-full bg-indigo-400/10 px-2 py-0.5 text-xs text-indigo-200">ABS</span>
-                      <span class="rounded-full bg-indigo-400/10 px-2 py-0.5 text-xs text-indigo-200">PETG</span>
-                      <span class="rounded-full bg-indigo-400/10 px-2 py-0.5 text-xs text-indigo-200">TPU</span>
-                      <span class="rounded-full bg-indigo-400/10 px-2 py-0.5 text-xs text-indigo-200">Resin</span>
+                    <div class="flex-1 overflow-hidden rounded-xl border border-white/10">
+                      <img src="3d op.png" alt="STL Model" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-2 text-center text-xs text-white/40">STL Model View</p>
                     </div>
                   </div>
                 </div>
-                <div class="mt-4 grid gap-4 sm:grid-cols-2">
-                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
-                    <h4 class="font-bold text-indigo-300 text-sm mb-3">🖥️ Slicer, STL &amp; Settings</h4>
-                    <p class="text-xs leading-6 text-white/65 mb-3">The model was sliced using <strong class="text-white/80">Bambu Studio</strong>. An STL (Stereolithography) file represents 3D surface geometry using triangular faces, supported by all major slicing programs.</p>
-                    <div class="overflow-hidden rounded-xl border border-white/10 mb-3">
-                      <img src="slicer set.png" alt="Slicer Settings" class="w-full h-36 object-cover hover:scale-105 transition-transform duration-500">
-                      <p class="p-1 text-center text-xs text-white/35">Slicer Settings</p>
+
+                <!-- ═══════ PRINTING PROCESS & RESULT ═══════ -->
+                <div class="rounded-2xl bg-white/5 border border-white/10 p-5 mb-5">
+                  <h4 class="font-bold text-indigo-300 text-base mb-3">🖨️ Printing Process &amp; Final Result</h4>
+                  <div class="overflow-hidden rounded-xl border border-white/10 mb-4">
+                    <img src="pla material type.jpg" alt="PLA Material" class="w-full h-44 object-cover hover:scale-105 transition-transform duration-500">
+                    <p class="p-1.5 text-center text-xs text-white/40">PLA Filament Material</p>
+                  </div>
+                  <div class="flex flex-col sm:flex-row gap-4 mb-4">
+                    <div class="flex-1 overflow-hidden rounded-xl border border-white/10">
+                      <img src="3d work.jpeg" alt="3D Printing in Progress" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-2 text-center text-xs text-white/40">Printing in Progress</p>
                     </div>
-                    <div class="overflow-hidden rounded-xl border border-white/10">
-                      <img src="3d op.png" alt="STL Model" class="w-full h-36 object-cover hover:scale-105 transition-transform duration-500">
-                      <p class="p-1 text-center text-xs text-white/35">STL Model View</p>
+                    <div class="flex-1 overflow-hidden rounded-xl border border-white/10">
+                      <img src="print.jpeg" alt="Final 3D Print" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-500">
+                      <p class="p-2 text-center text-xs text-white/40">Final Result</p>
                     </div>
                   </div>
-                  <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
-                    <h4 class="font-bold text-indigo-300 text-sm mb-3">🖨️ Printing Process &amp; Final Result</h4>
-                    <div class="overflow-hidden rounded-xl border border-white/10 mb-3">
-                      <img src="pla material type.jpg" alt="PLA Material" class="w-full h-32 object-cover hover:scale-105 transition-transform duration-500">
-                      <p class="p-1 text-center text-xs text-white/35">PLA Material</p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-3">
-                      <div class="overflow-hidden rounded-xl border border-white/10">
-                        <img src="3d work.jpeg" alt="3D Printing in Progress" class="w-full h-32 object-cover hover:scale-105 transition-transform duration-500">
-                        <p class="p-1 text-center text-xs text-white/35">Printing in Progress</p>
-                      </div>
-                      <div class="overflow-hidden rounded-xl border border-white/10">
-                        <img src="print.jpeg" alt="Final 3D Print" class="w-full h-32 object-cover hover:scale-105 transition-transform duration-500">
-                        <p class="p-1 text-center text-xs text-white/35">Final Result</p>
-                      </div>
-                    </div>
-                    <p class="mt-3 text-xs leading-6 text-white/65">The completed object was removed from the print bed and inspected for overall shape, surface quality, dimensional accuracy and any visible printing defects.</p>
-                  </div>
+                  <p class="text-sm leading-6 text-white/65">The completed object was removed from the print bed and inspected for overall shape, surface quality, dimensional accuracy and any visible printing defects.</p>
                 </div>
-                <div class="mt-4 rounded-2xl bg-gradient-to-br from-indigo-500/15 to-violet-500/10 border border-indigo-400/25 p-5">
+
+                <!-- ═══════ WHY 3D PRINTING ═══════ -->
+                <div class="rounded-2xl bg-gradient-to-br from-indigo-500/15 to-violet-500/10 border border-indigo-400/25 p-5">
                   <h4 class="font-bold text-white text-sm mb-2">💡 Why 3D Printing Over Subtractive Manufacturing?</h4>
                   <p class="text-xs leading-6 text-white/65">The selected object contains complex internal geometry, enclosed spaces and curved structures that are difficult to produce using conventional subtractive methods (cutting, drilling, milling). 3D printing builds the object layer by layer, making such complex geometries straightforward to produce without multiple tool setups.</p>
                 </div>
+
               </div>
               <!-- END 3D PRINTING -->
             </div>
