@@ -708,6 +708,102 @@
             </div>
           </div>
 
+          <!-- WEEK 04 BLOG -->
+          <div data-phase="p1" class="archive-card glass rounded-2xl p-5 col-span-full">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-bold text-indigo-300">WEEK 04</p>
+                <h3 class="mt-2 font-bold text-lg">Arduino, Sensors, ESP32 &amp; IoT</h3>
+                <p class="mt-1 text-sm text-white/45">Arduino Uno · Sensors (LDR, PIR, IR, DHT11, RFID) · ESP32 · OLED · IoT · Smart Traffic Light · Joystick</p>
+              </div>
+              <button id="week04Toggle"
+                class="mt-1 flex-shrink-0 rounded-xl bg-indigo-600/30 border border-indigo-400/30 px-4 py-2 text-xs font-bold text-indigo-200 hover:bg-indigo-600/60 transition-all"
+                aria-expanded="false">Read More ↓</button>
+            </div>
+            <div id="week04Content" class="hidden mt-6 space-y-5">
+              
+              <!-- Overview / Introduction -->
+              <div class="rounded-2xl bg-indigo-500/10 border border-indigo-400/20 p-6">
+                <p class="text-sm leading-7 text-white/70">Week 04 was one of the most practical parts of ProtoSem. We moved from learning basic electronic concepts to programming microcontrollers, working with sensors and building interactive prototypes. The activities helped us understand how hardware and software work together in real-world applications.</p>
+              </div>
+
+              <!-- Day 1 -->
+              <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+                <h4 class="font-bold text-indigo-300 flex items-center gap-2 text-base"><span>📅</span> Day 1 – Arduino Fundamentals</h4>
+                <p class="mt-3 text-sm leading-7 text-white/65">We started by understanding the Arduino Uno, its main components, digital and analog pins, power connections and basic microcontroller functions. We learned how to use a breadboard to connect components without permanently soldering them.</p>
+                <p class="mt-3 text-sm leading-7 text-white/65">We then wrote and uploaded simple Arduino programs and performed LED exercises. By changing the code, we could control when the LED turned ON and OFF. This gave us our first clear understanding of how programming instructions can control physical components.</p>
+                <div class="mt-4 overflow-hidden rounded-xl border border-white/10 bg-black/40 p-2 flex justify-center">
+                  <img src="aurdino uno 2.jpeg" alt="Arduino Uno Board" class="w-full max-h-[480px] object-contain rounded-lg hover:scale-102 transition-transform duration-300">
+                </div>
+                <p class="pt-2 text-center text-xs text-white/40">Arduino Uno Microcontroller &amp; Hardware Setup</p>
+              </div>
+
+              <!-- Day 2 -->
+              <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+                <h4 class="font-bold text-fuchsia-300 flex items-center gap-2 text-base"><span>📅</span> Day 2 – Sensors &amp; Hardware Interaction</h4>
+                <p class="mt-3 text-sm leading-7 text-white/65">We explored different sensors, including LDR, PIR, IR, DHT11 and RFID. Each sensor helped us understand a different type of input:</p>
+                
+                <ul class="mt-3 space-y-2 text-sm text-white/70">
+                  <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span><span><strong class="text-white">LDR</strong> – detects changes in light intensity</span></li>
+                  <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span><span><strong class="text-white">PIR</strong> – detects human or motion movement</span></li>
+                  <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span><span><strong class="text-white">IR Sensor</strong> – detects nearby objects</span></li>
+                  <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span><span><strong class="text-white">DHT11</strong> – measures temperature and humidity</span></li>
+                  <li class="flex gap-2"><span class="text-fuchsia-400 mt-0.5">▸</span><span><strong class="text-white">RFID</strong> – identifies objects/cards using radio-frequency communication</span></li>
+                </ul>
+                
+                <p class="mt-4 text-sm leading-7 text-white/65">We connected sensors to the Arduino and observed their readings through the Serial Monitor. We also used LEDs and motors as outputs based on sensor conditions. This helped us understand the basic concept of <strong class="text-white">Input → Processing → Output</strong>.</p>
+                
+                <!-- Media Section for Day 2 -->
+                <div class="mt-5 space-y-5">
+                  <div class="overflow-hidden rounded-xl border border-white/10 bg-black/40 p-2 flex justify-center">
+                    <img src="aurdno uno.jpeg" alt="Arduino Sensor Wiring" class="w-full max-h-[480px] object-contain rounded-lg hover:scale-102 transition-transform duration-300">
+                  </div>
+                  <p class="pt-1 text-center text-xs text-white/40">Arduino Uno &amp; Sensor Wiring Setup</p>
+
+                  <div class="overflow-hidden rounded-xl border border-white/10 bg-black/40 p-2">
+                    <video src="aurdino video.mp4" controls class="w-full max-h-[450px] rounded-lg"></video>
+                    <p class="pt-2 text-center text-xs text-white/40">Arduino &amp; Sensor Demonstration Video</p>
+                  </div>
+
+                  <div class="overflow-hidden rounded-xl border border-white/10 bg-black/40 p-2">
+                    <video src="rfid.mp4" controls class="w-full max-h-[450px] rounded-lg"></video>
+                    <p class="pt-2 text-center text-xs text-white/40">RFID Module Card Identification Test</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Day 3 -->
+              <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+                <h4 class="font-bold text-purple-300 flex items-center gap-2 text-base"><span>📅</span> Day 3 – ESP32 &amp; OLED Game Development</h4>
+                <p class="mt-3 text-sm leading-7 text-white/65">Next, we moved from Arduino to the more powerful ESP32. We explored its GPIO pins and built-in Wi-Fi and Bluetooth capabilities.</p>
+                <p class="mt-3 text-sm leading-7 text-white/65">We connected an OLED display using I2C and added physical controls such as push buttons. We then developed a simple falling game on the ESP32. The game required us to combine programming logic, button inputs, screen graphics and continuous updates.</p>
+                <p class="mt-3 text-sm leading-7 text-white/65">This activity showed us that a microcontroller can be used not only for basic automation but also for creating interactive applications and games.</p>
+              </div>
+
+              <!-- Day 4 -->
+              <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+                <h4 class="font-bold text-violet-300 flex items-center gap-2 text-base"><span>📅</span> Day 4 – IoT &amp; Smart Traffic System</h4>
+                <p class="mt-3 text-sm leading-7 text-white/65">We were introduced to the concept of Internet of Things (IoT) and learned how devices can connect to a network and communicate with each other. Using the ESP32's Wi-Fi capability, we understood the basics of connected hardware systems.</p>
+                <p class="mt-3 text-sm leading-7 text-white/65">We also built a Smart Traffic Light System using red, yellow and green LEDs. By programming the LEDs to turn ON and OFF in sequence, we simulated how a real traffic signal operates. This helped us connect a simple electronic circuit with a real-world traffic management application.</p>
+              </div>
+
+              <!-- Day 5 -->
+              <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+                <h4 class="font-bold text-indigo-300 flex items-center gap-2 text-base"><span>📅</span> Day 5 – Joystick &amp; Interactive Hardware</h4>
+                <p class="mt-3 text-sm leading-7 text-white/65">On the final day, we worked with dual analog joystick modules and connected them to the ESP32. We learned how joystick movements generate different analog values and how these values can be read by the microcontroller.</p>
+                <p class="mt-3 text-sm leading-7 text-white/65">We calibrated the joysticks and explored how they could be used as physical controls for interactive systems. Combining the joystick with the ESP32 gave us an idea of how controllers can be used in games, robotics and other embedded applications.</p>
+              </div>
+
+              <!-- Overall Learning -->
+              <div class="rounded-2xl bg-gradient-to-br from-indigo-500/15 to-violet-500/10 border border-indigo-400/25 p-6">
+                <h4 class="font-bold text-white flex items-center gap-2 text-base"><span>✨</span> Overall Learning</h4>
+                <p class="mt-3 text-sm leading-7 text-white/70">Week 04 gave us a complete practical journey from basic Arduino programming to sensors, ESP32, IoT and interactive hardware. Instead of only learning what each component does, we actually connected, programmed and tested them.</p>
+                <p class="mt-3 text-sm leading-7 text-white/70">The most valuable part was seeing how a small piece of code could create a physical action—like making an LED glow, detecting movement, displaying information or controlling a system. It helped us understand that electronics and programming are not separate; together, they can be used to build practical solutions for real-world problems.</p>
+              </div>
+
+            </div>
+          </div>
+
           <!-- WEEK 06 BLOG -->
           <div data-phase="p2" class="archive-card glass rounded-2xl p-5 col-span-full">
             <div class="flex items-start justify-between gap-4">
@@ -1120,6 +1216,17 @@
         week03Content.classList.toggle('hidden', isOpen);
         week03Btn.textContent = isOpen ? 'Read More ↓' : 'Collapse ↑';
         week03Btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    }
+
+    const week04Btn = document.getElementById('week04Toggle');
+    const week04Content = document.getElementById('week04Content');
+    if (week04Btn && week04Content) {
+      week04Btn.addEventListener('click', () => {
+        const isOpen = !week04Content.classList.contains('hidden');
+        week04Content.classList.toggle('hidden', isOpen);
+        week04Btn.textContent = isOpen ? 'Read More ↓' : 'Collapse ↑';
+        week04Btn.setAttribute('aria-expanded', String(!isOpen));
       });
     }
 
