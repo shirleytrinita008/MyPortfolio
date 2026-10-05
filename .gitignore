@@ -1,0 +1,5 @@
+# Large binary files — exceed GitHub's 100 MB limit
+*.stl
+*.3mf
+*.gcode
+*.gcode.3mf
